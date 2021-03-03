@@ -2,8 +2,8 @@
   <img src="https://user-images.githubusercontent.com/16132740/93000344-72b63300-f530-11ea-95a1-b1b3c0ad332b.png" alt="logo" width="120">
   <br>
   <img src="https://img.shields.io/badge/node-12.18.3-blue" alt="node">
-  <img src="https://img.shields.io/github/package-json/dependency-version/acayseth/cryptan-desktop/@angular/core" alt="angular">
-  <img src="https://img.shields.io/github/package-json/dependency-version/acayseth/cryptan-desktop/dev/electron/master" alt="electron">
+  <img src="https://img.shields.io/badge/angular-10.2.3-blue" alt="node">
+  <img src="https://img.shields.io/badge/electron-12.0.0-blue" alt="node">
   <img src="https://img.shields.io/badge/build-0.0.0--beta-blue" alt="build">
   <img src="https://img.shields.io/badge/License-%20GPL--3.0-blue" alt="license">
 </p>
