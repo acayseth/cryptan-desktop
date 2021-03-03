@@ -1,0 +1,18 @@
+.app-loading {
+  .logo {
+    width: 200px;
+    height: 200px;
+    background: url('../images/logo.svg') center center no-repeat;
+    animation: fadein 2s;
+  }
+
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+}
