@@ -8,6 +8,7 @@
 /out-tsc
 # Only exists if Bazel was run
 /bazel-out
+database.sqlite
 
 # dependencies
 /node_modules
@@ -27,6 +28,7 @@ speed-measure-plugin*.json
 *.sublime-workspace
 
 # IDE - VSCode
+/.vscode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json

@@ -47,7 +47,11 @@
             "aot": true,
             "assets": [
               "src/render/favicon.ico",
-              "src/render/images/icons"
+              {
+                "glob": "logo.png",
+                "input": "src/render/assets/images",
+                "output": "/"
+              }
             ],
             "styles": [
               "src/render/assets/stylesheets/app-loading.scss",
