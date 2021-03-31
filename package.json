@@ -14,7 +14,7 @@
     "prestart": "rimraf dist build electron",
     "ng:build:dev": "ng build --delete-output-path=false --prod=false --base-href --watch",
     "ng:build:prod": "ng build --prod=true --base-href",
-    "electron:tsc:watch": "tsc -w -p tsconfig.electron.json",
+    "electron:tsc:watch": "tsc -w -p tsconfig.electron.json 1>NULL",
     "electron:run": "wait-on dist/index.html && electron . --develop --theme light"
   },
   "dependencies": {
