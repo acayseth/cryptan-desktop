@@ -3,33 +3,41 @@ import { ElectronMain } from './electron/electron.main';
 
 process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true';
 
-const browserOptions = {
-  title: 'Cryptan',
-  icon: path.resolve(__dirname, '..', 'dist', 'logo.png'),
-  width: 1280,
-  height: 720,
-  minWidth: 1280,
-  minHeight: 720,
-  frame: true,
-  show: true,
-  webPreferences: {
-    webgl: true,
-    defaultEncoding: 'utf8',
-    zoomFactor: 1.0
+if (process.argv.indexOf('--develop') !== -1) {
+  require('electron-reload')(process.cwd(), {
+    electron: path.resolve(process.cwd(), 'node_modules', '.bin', 'electron.cmd'),
+    argv: process.argv.slice(2)
+  });
+}
+
+const osEnvTheme = () => {
+  if (process.argv.indexOf('--light')) {
+    return 'light' as 'light';
+  } else if (process.argv.indexOf('--dark')) {
+    return 'dark' as 'dark';
+  } else {
+    return 'system' as 'system';
   }
 };
 
-require('electron-reload')(path.join(__dirname, '..', '..'), {
-  electron: path.resolve(__dirname, '..', '..', 'node_modules', '.bin', 'electron.cmd')
-});
-
 export default new ElectronMain({
   develop: process.argv.indexOf('--develop') !== -1,
-  theme: (
-    process.argv.indexOf('--theme') && process.argv[process.argv.indexOf('--theme') + 1]
-      ? process.argv[process.argv.indexOf('--theme') + 1] as 'light' | 'dark'
-      : 'system'
-  ),
+  theme: osEnvTheme(),
   index: path.resolve(__dirname, '..', 'dist', 'index.html'),
-  browserOptions
-}).runningApplication();
+  browserOptions: {
+    title: 'Cryptan',
+    icon: path.resolve(__dirname, '..', 'dist', 'logo.png'),
+    width: 1280,
+    height: 720,
+    minWidth: 1280,
+    minHeight: 720,
+    frame: false,
+    show: false,
+    webPreferences: {
+      webgl: true,
+      defaultEncoding: 'utf8',
+      zoomFactor: 1.0
+    }
+  }
+});
+

@@ -1,15 +1,16 @@
-import * as path from 'path';
-import { BrowserViewConstructorOptions, BrowserWindow, nativeTheme } from 'electron';
+import { BrowserWindow, nativeTheme, App } from 'electron';
 
-import { IElectronMainConfig } from './electron.main';
+import { IElectronMainConfig } from './types/electron';
 
 export class ElectronWindow {
 
   public window: BrowserWindow;
 
-  constructor(private config: IElectronMainConfig, onClose: () => void) {
+  constructor(private config: IElectronMainConfig, app: App) {
     this.window = new BrowserWindow(this.config.browserOptions);
-    this.window.on('closed', onClose);
+    this.window.on('closed', () => {
+      app.quit();
+    });
     
     nativeTheme.themeSource = this.config.theme;
 

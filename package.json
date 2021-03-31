@@ -14,8 +14,8 @@
     "prestart": "rimraf dist build electron",
     "ng:build:dev": "ng build --delete-output-path=false --prod=false --base-href --watch",
     "ng:build:prod": "ng build --prod=true --base-href",
-    "electron:tsc:watch": "tsc -w -p tsconfig.electron.json 1>NULL",
-    "electron:run": "wait-on dist/index.html && electron . --develop --theme light"
+    "electron:tsc:watch": "tsc -w -p tsconfig.electron.json >nul 2>&1",
+    "electron:run": "wait-on dist/index.html && electron . --develop --light"
   },
   "dependencies": {
     "@angular/animations": "~10.2.4",

@@ -1,47 +1,26 @@
-import * as path from 'path';
-import { app, BrowserViewConstructorOptions, BrowserWindow } from 'electron';
+import { app, BrowserWindow, App } from 'electron';
+
+import { IElectronMainConfig } from './types/electron';
 import { ElectronWindow } from './electron.window';
-
-import { synchronize, EntityModel, authenticate } from '../sqlite/index';
-
-export interface IElectronMainConfig {
-  develop: boolean;
-  theme: ('system' | 'light' | 'dark');
-  index: string;
-  browserOptions: BrowserViewConstructorOptions;
-}
 
 export class ElectronMain {
 
+  public app: App = app;
   private window: BrowserWindow;
 
   constructor(private config: IElectronMainConfig) {
-    
+    this.initApp();
+    console.log('constructor');
   }
 
-  public runningApplication(): void {
+  private initApp(): void {
     app.whenReady().then(() => this.whenReadyCreateWindow());
-    app.on('window-all-closed', () => {
-      if (process.platform !== 'darwin') {
-        app.quit();
-      }
-    });
+    app.on('window-all-closed', () => this.onCloneNonDarwin());
     app.on('activate', () => this.createDefaultWindows());
   }
 
   private whenReadyCreateWindow(): void {
-    this.window = new ElectronWindow(this.config, this.onClose).window;
-
-    // exists databases
-    // authenticate().then(() => {
-    //   console.log('auth');
-    // });
-
-    // not exists databases
-    // synchronize({force: true}).then(() => {
-    //   console.log('sync');
-    // });
-
+    this.window = new ElectronWindow(this.config, this.app).window;
   }
 
   private createDefaultWindows(): void {
@@ -50,8 +29,10 @@ export class ElectronMain {
     }
   }
 
-  private onClose(): void {
-    app.quit();
+  private onCloneNonDarwin(): void {
+    if (process.platform !== 'darwin') {
+      app.quit();
+    }
   }
 
 }
