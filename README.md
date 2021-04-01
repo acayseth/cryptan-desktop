@@ -39,3 +39,16 @@ Electron                        12.0.0
 Chromium                        89.0.4389.69
 v8                              8.9.255.19-electron.0
 ```
+
+## License
+The GNU General Public License is a free, copyleft license for software and other kinds of works.
+
+## Contributors
+<p>
+   <a href="https://github.com/acayseth">
+      <img width="32" src="https://avatars.githubusercontent.com/u/16132740?v=4" alt="logo"/>
+   </a>
+</p>
+
+## Copyright
+Copyright (c) 2017 Cryptan Community
