@@ -1,6 +1,8 @@
 <p align="center">
   <img src="https://user-images.githubusercontent.com/16132740/93000344-72b63300-f530-11ea-95a1-b1b3c0ad332b.png" alt="logo" width="120">
   <br>
+  <b>Cryptan</b>
+  <br>
   <img src="https://img.shields.io/badge/node-12.18.3-blue" alt="node">
   <img src="https://img.shields.io/badge/angular-10.2.3-blue" alt="node">
   <img src="https://img.shields.io/badge/electron-12.0.0-blue" alt="node">
@@ -21,7 +23,7 @@ Additional labels for pre-release and build metadata are available as extensions
 
 ## Packages
 ```bash
--[Angular] ----------------------------------------------
+- [Angular] ----------------------------------------------
 @angular-devkit/architect       0.1002.3
 @angular-devkit/build-angular   0.1002.3
 @angular-devkit/core            10.2.3
@@ -34,7 +36,7 @@ Additional labels for pre-release and build metadata are available as extensions
 rxjs                            6.6.6
 typescript                      4.0.7
 
--[Electron] ---------------------------------------------
+- [Electron] ---------------------------------------------
 Electron                        12.0.0
 Chromium                        89.0.4389.69
 v8                              8.9.255.19-electron.0
